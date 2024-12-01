@@ -1,0 +1,1 @@
+https://grafana.com/docs/pyroscope/latest/configure-client/grafana-agent/go_pull/

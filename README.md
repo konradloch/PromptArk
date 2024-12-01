@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/konradloch/PromptArk">
-    <img src="images/logo.png" alt="Logo" width="120" height="80">
+    <img src="images/logowhite.png" alt="Logo" width="400" height="125">
   </a>
 
 <!-- <h3 align="center">PromptArk</h3> -->

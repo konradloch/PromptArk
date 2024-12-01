@@ -1,0 +1,41 @@
+services:
+  mongodb:
+    image: mongo:latest
+    restart: on-failure
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_ROOT_DATABASE: prompt-analyzer
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - mongodb-data:/data/db
+      - mongodb-log:/var/log/mongodb
+  web:
+    # image: prompt-frontend
+    build:
+      context: ../frontend
+      args:
+        - REACT_APP_BACKEND_BASE_URL=http://localhost:8000
+    ports:
+    - "3000:80"
+    
+  backend:
+    # image: prompt-backend
+    build: ../backend
+    ports:
+    - "8000:8000"
+    - "8011:8011"
+    environment:
+      - MONGO_HOST=mongodb
+      - MONGO_PORT=27017
+      - MONGO_DBNAME=prompt-analyzer
+      - MONGO_USERNAME=promptuser
+      - MONGO_PASSWORD=promptpwd
+      - OPENAPI_API_URL=http://localhost:8000
+volumes:
+  mongodb-data:
+    driver: local
+  mongodb-log:
+    driver: local
