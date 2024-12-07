@@ -19,18 +19,16 @@
   <p align="center">
     Build, store, analyze and get feedbacks of your LLM prompts and outputs used in your services. Just a tool for prompt engineering in sofware engineering.
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/konradloch/PromptArk/wiki/Welcome-to-the-PromptArk-wiki!"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/konradloch/PromptArk/wiki/Welcome-to-the-PromptArk-wiki!">View docs</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    <a href="https://github.com/konradloch/PromptArk/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/konradloch/PromptArk/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -38,16 +36,9 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
@@ -63,7 +54,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<img src="images/appscreenshot1.png" alt="AppScreen">
 
 The project was created through the need for dynamic prompt management in applications using LLM. Then evolved to a small platform where prompts are handled from creation to user feedback.
 
@@ -81,7 +72,9 @@ The project was created through the need for dynamic prompt management in applic
 - ↔️ <b> Prompt A/B Tests </b> help in choosing the best prompt version that works in all situations.
 
 
-### Main ideas
+### Main concepts
+<img src="images/diag.png" alt="diagram">
+
 - LLM calls are made on client side. PromptArk does't trigger LLM directly, it focus only on prompts.
 - Clients comunicate via PromptArk API or SDK.
 
@@ -108,34 +101,26 @@ The project was created through the need for dynamic prompt management in applic
 
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+### Docker
+#### Prerequisites
+* Docker
+* Docker Compose
+#### Installation
+1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/konradloch/PromptArk.git
    ```
-3. Install NPM packages
+1. Open `deployment` folder
    ```sh
-   npm install
+   cd ./deployment
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-5. Change git remote url to avoid accidental pushes to base project
+1. Run containers
    ```sh
-   git remote set-url origin github_username/repo_name
-   git remote -v # confirm the changes
+   docker-compose up -d
+   ```
+1. Open in browser 
+   ```sh
+   http://localhost:3000
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -147,15 +132,15 @@ This is an example of how to list things you need to use the software and how to
 
 How to use PromptArk in few points:
 
- 1. Create a group. Group represents a chain of prompts or just single prompts that you will use in LLM in your application. You create group in the “Group” page.
- 2. Enter the created group and create a chain of prompts or just individual prompts. In creation form you will find explanations of various fields.
+ 1. Create a group. Group represents a chain of prompts or just single prompt that you will use in LLM in your application. You create group in the “Group” page.
+ 2. Open the created group and create a chain of prompts or just individual prompts. In creation form you will find explanations of various fields.
  3. With the prompt created, click the button referring to the builder.
  4. It is time to create a prompt. The question marks next to the field names will provide useful information. Remember to save it. This will create a new version to which you will always be able to return.
  5. Repeat building process for all created prompts and activate desired prompts version via the “Activate” button.
  6. In order to have access to your prompts through the API or SDK, you must make the group public ("by clicking the ‘Publish’ button). Publication allows to manage "production" prompts.
  7. From now on you can fetch, manage, record results, create A/B tests and collect feedback from your prompts and their results via API or SDK. You can find how to do this in the references to Swagger UI by the names of the modules.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For more examples, please refer to the [Documentation](https://github.com/konradloch/PromptArk/wiki/Welcome-to-the-PromptArk-wiki!)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -167,7 +152,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [ ] Improve reliability, avaliability and performance of API calls.
 - [ ] Improve analyzer UI
     - [ ] graph view for group of prompts
-    - [ ] A/B test prompts arena
+    - [ ] A/B test prompts arena (for picking better prompts results)
 - [ ] LLM-as-a-judge integrated with analyzer
 - [ ] Exporter for rated prompts (for fine-tunning purposes)
 - [ ] Improved prompt builder
@@ -176,10 +161,10 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [ ] Improved metrics section.
 - [ ] User Management
 - [ ] Improved Security
-- [ ] Improve Scoring system
+- [ ] Improve scoring system
 - [ ] Add Multiple tokenizers
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/konradloch/PromptArk/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -201,18 +186,16 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Top contributors:
+<!-- ### Top contributors:
 
-<a href="https://github.com/github_username/repo_name/graphs/contributors">
+<a href="https://github.com/konradloch/PromptArk/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=github_username/repo_name" alt="contrib.rocks image" />
-</a>
-
-
+</a> -->
 
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the AGPL-3.0 license. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -223,7 +206,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/konradloch/PromptArk](https://github.com/konradloch/PromptArk)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
@@ -242,19 +225,19 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
+<!-- [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
+[contributors-url]: https://github.com/konradloch/PromptArk/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
+[forks-url]: https://github.com/konradloch/PromptArk/network/members
 [stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
+[stars-url]: https://github.com/konradloch/PromptArk/stargazers
 [issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
+[issues-url]: https://github.com/konradloch/PromptArk/issues
 [license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
+[license-url]: https://github.com/konradloch/PromptArk/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: images/screenshot.png -->
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [Go]: https://img.shields.io/badge/Go-20232A?style=for-the-badge&logo=go&logoColor=00ADD8

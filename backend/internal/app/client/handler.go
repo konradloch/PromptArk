@@ -55,8 +55,13 @@ func (h *HTTPHandler) GetPublishedPrompt(c echo.Context) error {
 func (h *HTTPHandler) CreateAnalyzeRecord(c echo.Context) error {
 	var p entity.AnalyzerPayload
 	err := json.NewDecoder(c.Request().Body).Decode(&p)
+
 	if err != nil {
 		return echo.NewHTTPError(400, "payload has invalid structure")
+	}
+
+	if p.Status != "success" && p.Status != "error" {
+		return echo.NewHTTPError(400, "payload has invalid status")
 	}
 	if p.PromptID != "" {
 		err = h.validate.Struct(p)

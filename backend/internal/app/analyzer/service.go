@@ -26,6 +26,7 @@ func NewService(repo *Repository, outputer outputer) *Service {
 
 func (s *Service) CreateAnalyzeRecord(ctx context.Context, p entity.AnalyzerPayload) error {
 	log.Info("Creating new pub output")
+	
 	if p.CorrelationID != "" && p.PromptID == "" && p.PromptOutput != "" {
 		log.Info("Creating final output")
 		output := entity.PromptOutput{
