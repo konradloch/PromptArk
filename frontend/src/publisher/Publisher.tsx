@@ -145,7 +145,7 @@ function StatisticsBox(props: any) {
 
 
     return (<React.Fragment>
-        {loading ? (<CircularProgress />) : error ? (<Alert severity="error">{error}</Alert>) : (null)}
+        {loading ? (<CircularProgress />) : error ? (<Grid item xs={12}><Alert severity="error">{error}</Alert></Grid>) : (null)}
         <Grid item xs={2}>
             <Item><InfoBox name={"Tokens"} subname={"/24h"}
             subname2={getCreatedAt("tokens")}

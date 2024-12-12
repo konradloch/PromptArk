@@ -28,6 +28,9 @@
     ·
     <a href="https://github.com/konradloch/PromptArk/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
+  <b align="center">
+  The current version of the service is not suitable for production use!
+  </b>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -116,7 +119,7 @@ To get a local copy up and running follow these simple example steps.
    ```
 1. Run containers
    ```sh
-   docker-compose up -d
+   docker-compose up -d --build
    ```
 1. Open in browser 
    ```sh
@@ -153,9 +156,13 @@ _For more examples, please refer to the [Documentation](https://github.com/konra
 - [ ] Improve analyzer UI
     - [ ] graph view for group of prompts
     - [ ] A/B test prompts arena (for picking better prompts results)
+    - [ ] better view to compare multiple prompts versions
+- [ ] External module to run prompts against multiple LLM models
 - [ ] LLM-as-a-judge integrated with analyzer
 - [ ] Exporter for rated prompts (for fine-tunning purposes)
 - [ ] Improved prompt builder
+  - [ ] better builder
+  - [ ] prompt auto-tune
 - [ ] Notifier for failed prompts
 - [ ] Improved feedback section (more details)
 - [ ] Improved metrics section.
